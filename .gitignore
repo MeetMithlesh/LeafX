@@ -1,0 +1,21 @@
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Env / secrets
+.env
+
+# Node
+node_modules/
+dist/
+
+# Archives & old models
+*.zip
+*.h5
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

@@ -1,0 +1,332 @@
+"""
+Class labels and disease reference data for the
+Daksh159/plant-disease-mobilenetv2 model (PlantVillage, 38 classes).
+
+The order of CLASS_NAMES must match the order used at training time
+(torchvision ImageFolder = alphabetical folder names of the
+"New Plant Diseases Dataset (Augmented)").
+"""
+
+CLASS_NAMES = [
+    "Apple___Apple_scab",
+    "Apple___Black_rot",
+    "Apple___Cedar_apple_rust",
+    "Apple___healthy",
+    "Blueberry___healthy",
+    "Cherry_(including_sour)___Powdery_mildew",
+    "Cherry_(including_sour)___healthy",
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "Corn_(maize)___Common_rust_",
+    "Corn_(maize)___Northern_Leaf_Blight",
+    "Corn_(maize)___healthy",
+    "Grape___Black_rot",
+    "Grape___Esca_(Black_Measles)",
+    "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)",
+    "Grape___healthy",
+    "Orange___Haunglongbing_(Citrus_greening)",
+    "Peach___Bacterial_spot",
+    "Peach___healthy",
+    "Pepper,_bell___Bacterial_spot",
+    "Pepper,_bell___healthy",
+    "Potato___Early_blight",
+    "Potato___Late_blight",
+    "Potato___healthy",
+    "Raspberry___healthy",
+    "Soybean___healthy",
+    "Squash___Powdery_mildew",
+    "Strawberry___Leaf_scorch",
+    "Strawberry___healthy",
+    "Tomato___Bacterial_spot",
+    "Tomato___Early_blight",
+    "Tomato___Late_blight",
+    "Tomato___Leaf_Mold",
+    "Tomato___Septoria_leaf_spot",
+    "Tomato___Spider_mites Two-spotted_spider_mite",
+    "Tomato___Target_Spot",
+    "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+    "Tomato___Tomato_mosaic_virus",
+    "Tomato___healthy",
+]
+
+# Human-friendly crop names (key = prefix before "___")
+CROP_NAMES = {
+    "Apple": "Apple (Malus domestica)",
+    "Blueberry": "Blueberry (Vaccinium sp.)",
+    "Cherry_(including_sour)": "Cherry (Prunus sp.)",
+    "Corn_(maize)": "Corn / Maize (Zea mays)",
+    "Grape": "Grape (Vitis vinifera)",
+    "Orange": "Orange (Citrus sinensis)",
+    "Peach": "Peach (Prunus persica)",
+    "Pepper,_bell": "Bell Pepper (Capsicum annuum)",
+    "Potato": "Potato (Solanum tuberosum)",
+    "Raspberry": "Raspberry (Rubus idaeus)",
+    "Soybean": "Soybean (Glycine max)",
+    "Squash": "Squash (Cucurbita sp.)",
+    "Strawberry": "Strawberry (Fragaria × ananassa)",
+    "Tomato": "Tomato (Solanum lycopersicum)",
+}
+
+# Disease info keyed by the disease part of the class name.
+# type: fungal | bacterial | viral | pest | healthy
+DISEASE_INFO = {
+    "Apple_scab": {
+        "name": "Apple Scab",
+        "type": "fungal",
+        "severity": "Moderate",
+        "spreadRisk": "High",
+        "description": "Fungal disease caused by Venturia inaequalis. Olive-green to brown velvety spots appear on leaves and fruit; leaves may yellow and drop early.",
+        "treatment": "Rake and destroy fallen leaves, prune for airflow, and apply captan or myclobutanil fungicide from green-tip through petal fall.",
+        "prevention": "Plant scab-resistant varieties, remove leaf litter in autumn, and avoid overhead irrigation.",
+    },
+    "Black_rot": {
+        "name": "Black Rot",
+        "type": "fungal",
+        "severity": "Severe",
+        "spreadRisk": "High",
+        "description": "Fungal disease (Botryosphaeria obtusa on apple, Guignardia bidwellii on grape). Causes circular brown leaf spots with purple margins and rotting, mummified fruit.",
+        "treatment": "Remove mummified fruit and cankered wood, then apply a protective fungicide (captan, mancozeb or myclobutanil) on a regular schedule.",
+        "prevention": "Sanitize the orchard/vineyard, prune dead wood, and keep the canopy open for fast drying.",
+    },
+    "Cedar_apple_rust": {
+        "name": "Cedar Apple Rust",
+        "type": "fungal",
+        "severity": "Moderate",
+        "spreadRisk": "Moderate",
+        "description": "Fungal disease (Gymnosporangium juniperi-virginianae) needing both apple and juniper hosts. Bright yellow-orange spots form on the upper leaf surface.",
+        "treatment": "Apply myclobutanil or similar fungicide from pink bud stage through early summer; remove nearby galls on junipers.",
+        "prevention": "Plant rust-resistant apple varieties and remove nearby juniper/red cedar hosts where possible.",
+    },
+    "Powdery_mildew": {
+        "name": "Powdery Mildew",
+        "type": "fungal",
+        "severity": "Moderate",
+        "spreadRisk": "High",
+        "description": "Fungal disease producing a white, powdery coating on leaves and shoots. Leaves may curl, distort and dry out.",
+        "treatment": "Remove heavily infected leaves and apply sulfur, potassium bicarbonate or neem oil sprays every 7–14 days.",
+        "prevention": "Improve air circulation, avoid excess nitrogen, water at the base, and choose resistant varieties.",
+    },
+    "Cercospora_leaf_spot Gray_leaf_spot": {
+        "name": "Gray Leaf Spot (Cercospora)",
+        "type": "fungal",
+        "severity": "Moderate",
+        "spreadRisk": "High",
+        "description": "Fungal disease (Cercospora zeae-maydis) causing long, rectangular grey-tan lesions bounded by leaf veins. Thrives in warm, humid weather.",
+        "treatment": "Apply a strobilurin or triazole fungicide at early lesion appearance, especially before tasseling.",
+        "prevention": "Rotate crops, till residue, and plant resistant hybrids.",
+    },
+    "Common_rust_": {
+        "name": "Common Rust",
+        "type": "fungal",
+        "severity": "Moderate",
+        "spreadRisk": "High",
+        "description": "Fungal disease (Puccinia sorghi) producing small, cinnamon-brown powdery pustules on both leaf surfaces.",
+        "treatment": "Apply fungicide (azoxystrobin, propiconazole) if pustules appear early in the season on susceptible hybrids.",
+        "prevention": "Plant rust-resistant hybrids and plant early to avoid peak spore periods.",
+    },
+    "Northern_Leaf_Blight": {
+        "name": "Northern Leaf Blight",
+        "type": "fungal",
+        "severity": "Severe",
+        "spreadRisk": "High",
+        "description": "Fungal disease (Exserohilum turcicum) producing long, cigar-shaped grey-green lesions that can kill large parts of the leaf.",
+        "treatment": "Apply foliar fungicide at early disease onset, particularly around tasseling and silking.",
+        "prevention": "Use resistant hybrids, rotate crops, and manage residue.",
+    },
+    "Esca_(Black_Measles)": {
+        "name": "Esca (Black Measles)",
+        "type": "fungal",
+        "severity": "Severe",
+        "spreadRisk": "Moderate",
+        "description": "Trunk disease complex caused by several wood-infecting fungi. Leaves show 'tiger-stripe' yellowing and browning between veins; berries develop dark spots.",
+        "treatment": "No curative spray exists. Prune out infected wood well below symptoms and protect pruning wounds.",
+        "prevention": "Prune in dry weather, seal large wounds, and remove dead or infected vines.",
+    },
+    "Leaf_blight_(Isariopsis_Leaf_Spot)": {
+        "name": "Leaf Blight (Isariopsis Leaf Spot)",
+        "type": "fungal",
+        "severity": "Moderate",
+        "spreadRisk": "Moderate",
+        "description": "Fungal disease (Pseudocercospora vitis) causing irregular dark brown spots on leaves that can lead to early defoliation.",
+        "treatment": "Remove infected leaves and apply copper-based or mancozeb fungicide.",
+        "prevention": "Keep the canopy open, remove fallen leaves, and avoid wetting foliage.",
+    },
+    "Haunglongbing_(Citrus_greening)": {
+        "name": "Huanglongbing (Citrus Greening)",
+        "type": "bacterial",
+        "severity": "Critical",
+        "spreadRisk": "High",
+        "description": "Incurable bacterial disease (Candidatus Liberibacter) spread by the Asian citrus psyllid. Causes blotchy, asymmetric leaf yellowing and small, bitter, misshapen fruit.",
+        "treatment": "There is no cure. Remove and destroy infected trees and control psyllids with approved insecticides.",
+        "prevention": "Use certified disease-free nursery stock, monitor and control psyllids, and report suspected cases to local agriculture authorities.",
+    },
+    "Bacterial_spot": {
+        "name": "Bacterial Spot",
+        "type": "bacterial",
+        "severity": "Moderate",
+        "spreadRisk": "High",
+        "description": "Bacterial disease (Xanthomonas spp.) causing small, water-soaked spots that turn dark and may have a yellow halo; spots can merge and cause leaf drop.",
+        "treatment": "Remove infected leaves and apply copper-based bactericide, optionally combined with mancozeb.",
+        "prevention": "Use disease-free seed and transplants, rotate crops, and avoid overhead watering and working with wet plants.",
+    },
+    "Leaf_scorch": {
+        "name": "Leaf Scorch",
+        "type": "fungal",
+        "severity": "Moderate",
+        "spreadRisk": "Moderate",
+        "description": "Fungal disease (Diplocarpon earlianum) causing many small purple spots that merge until the leaf looks scorched.",
+        "treatment": "Remove infected leaves after harvest and apply a labelled fungicide (captan, myclobutanil).",
+        "prevention": "Plant resistant cultivars, renovate beds yearly, and use drip irrigation.",
+    },
+    "Early_blight": {
+        "name": "Early Blight",
+        "type": "fungal",
+        "severity": "Moderate",
+        "spreadRisk": "Moderate",
+        "description": "Fungal disease (Alternaria solani) producing dark brown spots with concentric 'target' rings, usually on older, lower leaves first.",
+        "treatment": "Remove infected lower leaves and apply chlorothalonil, mancozeb or copper fungicide every 7–10 days.",
+        "prevention": "Rotate crops, mulch to stop soil splash, water at the base, and keep plants well fed.",
+    },
+    "Late_blight": {
+        "name": "Late Blight",
+        "type": "fungal",
+        "severity": "Severe",
+        "spreadRisk": "High",
+        "description": "Destructive disease caused by the water mould Phytophthora infestans. Large, dark, water-soaked lesions spread fast in cool, wet weather, often with white growth underneath.",
+        "treatment": "Remove and destroy infected plants immediately and apply a systemic or copper-based fungicide to nearby plants.",
+        "prevention": "Use certified disease-free seed, plant resistant varieties, space plants for airflow, and avoid wetting foliage.",
+    },
+    "Leaf_Mold": {
+        "name": "Leaf Mold",
+        "type": "fungal",
+        "severity": "Moderate",
+        "spreadRisk": "Moderate",
+        "description": "Fungal disease (Passalora fulva) common in humid greenhouses. Pale yellow spots on top of leaves with olive-green, velvety mould underneath.",
+        "treatment": "Lower humidity, remove infected leaves, and apply chlorothalonil or copper fungicide.",
+        "prevention": "Ventilate greenhouses, keep humidity below 85%, and space and prune plants.",
+    },
+    "Septoria_leaf_spot": {
+        "name": "Septoria Leaf Spot",
+        "type": "fungal",
+        "severity": "Moderate",
+        "spreadRisk": "High",
+        "description": "Fungal disease (Septoria lycopersici) producing many small circular spots with dark borders and grey centres, starting on lower leaves.",
+        "treatment": "Remove infected leaves and apply chlorothalonil or copper fungicide every 7–10 days.",
+        "prevention": "Rotate crops, mulch, stake plants, and avoid overhead watering.",
+    },
+    "Spider_mites Two-spotted_spider_mite": {
+        "name": "Two-Spotted Spider Mite",
+        "type": "pest",
+        "severity": "Moderate",
+        "spreadRisk": "High",
+        "description": "Pest infestation (Tetranychus urticae). Tiny mites feed on the leaf underside, causing yellow speckling (stippling), bronzing and fine webbing.",
+        "treatment": "Spray leaf undersides with water, insecticidal soap, neem oil or a labelled miticide; release predatory mites if available.",
+        "prevention": "Avoid drought stress, keep dust down, and monitor leaf undersides during hot, dry weather.",
+    },
+    "Target_Spot": {
+        "name": "Target Spot",
+        "type": "fungal",
+        "severity": "Moderate",
+        "spreadRisk": "Moderate",
+        "description": "Fungal disease (Corynespora cassiicola) causing brown spots with concentric rings and yellow halos on leaves, stems and fruit.",
+        "treatment": "Remove infected foliage and apply chlorothalonil, mancozeb or azoxystrobin.",
+        "prevention": "Improve airflow, remove crop debris, and rotate crops.",
+    },
+    "Tomato_Yellow_Leaf_Curl_Virus": {
+        "name": "Tomato Yellow Leaf Curl Virus",
+        "type": "viral",
+        "severity": "Severe",
+        "spreadRisk": "High",
+        "description": "Viral disease spread by whiteflies. Leaves curl upward, turn yellow at the edges and stay small; plants become stunted with poor fruit set.",
+        "treatment": "No cure. Remove and destroy infected plants and control whiteflies with sticky traps, insecticidal soap or approved insecticides.",
+        "prevention": "Use resistant varieties, insect-proof netting, and reflective mulches, and remove weeds that host whiteflies.",
+    },
+    "Tomato_mosaic_virus": {
+        "name": "Tomato Mosaic Virus",
+        "type": "viral",
+        "severity": "Severe",
+        "spreadRisk": "High",
+        "description": "Highly contagious virus causing light and dark green mottled (mosaic) patterns and distorted, fern-like leaves.",
+        "treatment": "No cure. Remove infected plants and disinfect tools and hands; the virus spreads by touch.",
+        "prevention": "Use resistant, certified seed, wash hands (especially after handling tobacco), and sanitize tools.",
+    },
+    "healthy": {
+        "name": "Healthy",
+        "type": "healthy",
+        "severity": "None",
+        "spreadRisk": "None",
+        "description": "No signs of disease were detected. The leaf looks healthy.",
+        "treatment": "No treatment needed. Continue regular care and monitoring.",
+        "prevention": "Keep up proper watering, sunlight, nutrition and crop rotation, and inspect plants weekly.",
+    },
+}
+
+# Generic care guidance by disease type (shown in the Treatment / Nutrition tabs).
+# These are general rules of thumb, not measurements from the image.
+CARE_BY_TYPE = {
+    "healthy": {
+        "water": {"current": "Optimal", "needed": "Optimal", "advice": "Keep your current watering schedule; water at the base in the morning."},
+        "sunlight": {"current": "Optimal", "needed": "Optimal", "advice": "Keep current sunlight exposure (6–8 hours for most crops)."},
+        "fertilizer": {
+            "n": {"level": "Good", "value": 45, "recommended": 40},
+            "p": {"level": "Good", "value": 50, "recommended": 45},
+            "k": {"level": "Good", "value": 55, "recommended": 50},
+            "recommendation": "Continue your regular balanced fertilization schedule.",
+        },
+    },
+    "fungal": {
+        "water": {"current": "High", "needed": "Moderate", "advice": "Reduce leaf wetness: water at the base, early in the day, and avoid overhead sprinklers."},
+        "sunlight": {"current": "Low", "needed": "High", "advice": "Prune crowded growth to let sunlight and air dry the canopy."},
+        "fertilizer": {
+            "n": {"level": "Moderate", "value": 35, "recommended": 30},
+            "p": {"level": "Moderate", "value": 30, "recommended": 40},
+            "k": {"level": "Deficient", "value": 25, "recommended": 50},
+            "recommendation": "Avoid excess nitrogen (it drives soft, susceptible growth). A potassium-rich feed helps strengthen leaf tissue.",
+        },
+    },
+    "bacterial": {
+        "water": {"current": "High", "needed": "Moderate", "advice": "Avoid splashing water and never work with plants while they are wet; bacteria spread through droplets."},
+        "sunlight": {"current": "Optimal", "needed": "Optimal", "advice": "Keep current exposure and improve spacing for airflow."},
+        "fertilizer": {
+            "n": {"level": "Moderate", "value": 35, "recommended": 30},
+            "p": {"level": "Good", "value": 45, "recommended": 45},
+            "k": {"level": "Moderate", "value": 35, "recommended": 50},
+            "recommendation": "Use a balanced fertilizer and avoid heavy nitrogen; add calcium/potassium to support cell walls.",
+        },
+    },
+    "viral": {
+        "water": {"current": "Optimal", "needed": "Optimal", "advice": "Keep watering steady; stressed plants show viral symptoms more strongly."},
+        "sunlight": {"current": "Optimal", "needed": "Optimal", "advice": "Use reflective mulch or netting to keep insect carriers away."},
+        "fertilizer": {
+            "n": {"level": "Good", "value": 40, "recommended": 40},
+            "p": {"level": "Good", "value": 45, "recommended": 45},
+            "k": {"level": "Good", "value": 50, "recommended": 50},
+            "recommendation": "Fertilizer won't cure a virus. Keep healthy plants well fed and focus on controlling insect carriers.",
+        },
+    },
+    "pest": {
+        "water": {"current": "Low", "needed": "High", "advice": "Mites thrive in hot, dry conditions; keep plants well watered and mist leaf undersides."},
+        "sunlight": {"current": "Optimal", "needed": "Optimal", "advice": "Keep current exposure; provide light shade during heat waves."},
+        "fertilizer": {
+            "n": {"level": "High", "value": 60, "recommended": 40},
+            "p": {"level": "Good", "value": 45, "recommended": 45},
+            "k": {"level": "Good", "value": 50, "recommended": 50},
+            "recommendation": "Cut back on nitrogen; lush, soft growth attracts mites.",
+        },
+    },
+}
+
+
+def parse_class_name(raw: str) -> dict:
+    """Split a raw label like 'Tomato___Late_blight' into crop and disease info."""
+    crop_key, disease_key = raw.split("___", 1)
+    info = DISEASE_INFO[disease_key]
+    crop_short = CROP_NAMES[crop_key].split(" (")[0]
+    return {
+        "raw": raw,
+        "crop": CROP_NAMES[crop_key],
+        "cropShort": crop_short,
+        "disease": info["name"],
+        "label": f"{crop_short} – {info['name']}",
+        "isHealthy": info["type"] == "healthy",
+        "info": info,
+    }
